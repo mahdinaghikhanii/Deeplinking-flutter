@@ -1,3 +1,5 @@
+import 'package:deeplink_flutter/bloc/blocstate.dart';
+import 'package:deeplink_flutter/module/theme.dart';
 import 'package:deeplink_flutter/screan/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,9 +15,8 @@ class MyApp extends StatelessWidget {
     return BlocBuilder(
         builder: (_, state) => MaterialApp(
             title: 'Flutter Demo',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
+            theme: appThemeData[
+                state is ThemeState ? state.appTheme : AppTheme.light],
             home: const Home()));
   }
 }
