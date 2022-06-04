@@ -1,10 +1,12 @@
-import 'package:deeplink_flutter/bloc/blocstate.dart';
-import 'package:deeplink_flutter/bloc/themebloc.dart';
-import 'package:deeplink_flutter/module/theme.dart';
-import 'package:flutter/material.dart';
-import 'package:collection/collection.dart';
 import 'package:beamer/beamer.dart';
+import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_strategy/url_strategy.dart';
+
+import 'bloc/blocstate.dart';
+import 'bloc/themebloc.dart';
+import 'module/theme.dart';
 
 // DATA
 class Book {
@@ -148,5 +150,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void main() => runApp(MultiBlocProvider(
-    providers: [BlocProvider(create: (_) => ThemeBloc())], child: MyApp()));
+void main() {
+  setPathUrlStrategy();
+  runApp(MultiBlocProvider(
+      providers: [BlocProvider(create: (_) => ThemeBloc())], child: MyApp()));
+}
