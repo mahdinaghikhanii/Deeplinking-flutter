@@ -1,7 +1,8 @@
-import 'package:deeplink_flutter/bloc/blocstate.dart';
-import 'package:deeplink_flutter/module/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../module/theme.dart';
+import 'blocstate.dart';
 
 class ThemeBloc extends Cubit<ThemeState> {
   ThemeBloc() : super(ThemeState(AppTheme.light)) {
